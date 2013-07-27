@@ -1,0 +1,15 @@
+ache & Temp Files
+*repo/*
+*repoWeibo/*
+*bin/*
+/Temp/*/*
+~*
+*.bak
+*.cmp
+*.old
+*.tmp
+*sublime*
+*.DS_*
+/bin
+weibo.log*
+*result.N3*
