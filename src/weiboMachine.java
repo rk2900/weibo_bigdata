@@ -33,7 +33,6 @@ public class weiboMachine {
     	int fileCount = 1;
     	for (String fileElement : fileList) {
     		if(fileElement.endsWith("csv")){
-    			System.out.println(fileElement);
     			BufferedReader reader;
     			String str = null;
     			long count=1;
@@ -101,7 +100,7 @@ public class weiboMachine {
 							/*********************/
 //							System.out.println("Line "+count+" processing...");
 							process(strList);
-							System.out.println("Line "+count+" processed.");
+//							System.out.println("Line "+count+" processed.");
 							
 						}
 					} catch (IOException e) {
@@ -114,6 +113,7 @@ public class weiboMachine {
 				}
     		}
     		System.out.println("File "+fileCount+" completed.");
+    		System.out.println("File name: "+fileElement);
     		fileCount++;
 //    		break; //add this line to read only one file.
      	}
