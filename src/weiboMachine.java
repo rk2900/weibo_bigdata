@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
-import java.util.Date;
 
 import org.openrdf.rio.RDFFormat;
 
@@ -22,7 +21,7 @@ public class weiboMachine {
 	public static void main(String[] args) {
 		repo = new RepoUtil(".//repoWeibo");
 		repo.initialize();
-		read("..//weibo_data");
+//		read("..//weibo_data");
 		repo.saveRDFTurtle(".//result.N3", RDFFormat.N3, "self");
 //		System.out.println(isTimeStamp("1289387501"));
 	}
@@ -35,7 +34,7 @@ public class weiboMachine {
     		if(fileElement.endsWith("csv")){
     			BufferedReader reader;
     			String str = null;
-    			long count=1;
+//    			long count=1;
     			boolean smallFlag = false;
     			try {
 					reader = new BufferedReader(new InputStreamReader(
@@ -44,7 +43,7 @@ public class weiboMachine {
 						reader.readLine();//deal with the first line
 						System.out.println(fileElement);
 						while((str = reader.readLine()) != null) {
-							count++;
+//							count++;
 							/*********************
 							int location = str.indexOf(",@");
 							if(location > 0) {
@@ -141,7 +140,7 @@ public class weiboMachine {
 		String weiboText = strList[6];	//weibo Text
 		
 		int tsLoc = 0;					//find the time stamp location
-		System.out.println(strList.length);
+//		System.out.println(strList.length);
 		for(tsLoc=strList.length-1; tsLoc>0; tsLoc--) {
 			if(strList[tsLoc].matches("[0-9]{10}")) {
 				if(tsLoc < 3) {
