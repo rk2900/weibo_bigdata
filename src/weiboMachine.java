@@ -22,9 +22,12 @@ public class weiboMachine {
 	public static void main(String[] args) {
 		repo = new RepoUtil(".//repoWeibo");
 		repo.initialize();
-		read("..//weibo_data");
-		repo.saveRDFTurtle(".//result.N3", RDFFormat.N3, "self");
+//		read("..//weibo_temp");
+//		repo.saveRDFTurtle(".//resultTemp.N3", RDFFormat.N3, "self");
 //		System.out.println(isTimeStamp("1289387501"));
+		repo.query();
+//		repo.timeLineQuery();
+//		repo.sourceQuery();
 	}
 
 	private static void read(String path) {
@@ -141,7 +144,7 @@ public class weiboMachine {
 		String weiboText = strList[6];	//weibo Text
 		
 		int tsLoc = 0;					//find the time stamp location
-		System.out.println(strList.length);
+//		System.out.println(strList.length);
 		for(tsLoc=strList.length-1; tsLoc>0; tsLoc--) {
 			if(strList[tsLoc].matches("[0-9]{10}")) {
 				if(tsLoc < 3) {

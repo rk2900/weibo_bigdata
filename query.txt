@@ -1,0 +1,309 @@
+// The number of user
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/weibo/> " +
+				"SELECT (COUNT(DISTINCT ?x) as ?c) " +
+				"WHERE {" +
+				"?x nsu:create ?y ." +
+				"}";
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/weibo/> SELECT (COUNT(DISTINCT ?x) as ?c) WHERE {?x nsu:create ?y .}
+"14140"^^<http://www.w3.org/2001/XMLSchema#integer>
+There are 14140 users of this data file.
+/***********************************************************************************************************/
+// The number of Weibo
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/weibo/> " +
+				"SELECT (COUNT(DISTINCT ?y) as ?c) " +
+				"WHERE {" +
+				"?x nsu:create ?y ." +
+				"}";
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/weibo/> SELECT (COUNT(DISTINCT ?y) as ?c) WHERE {?x nsu:create ?y .}
+"165533"^^<http://www.w3.org/2001/XMLSchema#integer>
+There are 165533 weibo of this data file.
+/***********************************************************************************************************/
+// The top 10 weibo with the highest reply number
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/property/> " +
+				"SELECT ?y ?num ?t " +
+				"WHERE {" +
+				"?y nsw:text ?t ." +
+				"?y nsw:reply-number ?num ." +
+				"} " +
+				"ORDERBY DESC(?num) " +
+				"LIMIT 10";
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/property/> SELECT ?y ?num ?t WHERE {?y nsw:text ?t .?y nsw:reply-number ?num .} ORDERBY DESC(?num) LIMIT 10
+[ Weibo ID ]
+[ Weibo reply number ]
+[ Weibo text ]
+http://weibo.com/weibo/3418715234184011
+"1456456"^^<http://www.w3.org/2001/XMLSchema#long>
+""#3月14日派节 让友情像π一样无限# 想向好友表达友情无限问候吗？现在关注<a href=""http://weibo.cn/n/%E5%A5%BD%E4%B8%BD%E5%8F%8B%E6%B4%BE%E5%AE%98%E6%96%B9%E5%BE%AE%E5%8?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8cD%9A"">@好丽友派官方微博</a> ，转发并@ 一位好友，写下你对ta的派节友情问候，即有机会为ta赢得“派节纪念礼盒”（价值200元），3月1日-20日活动期间将每天抽取157幸运参与者（共计3140位）。快参与活动，见证你们的友情无限吧！""
+http://weibo.com/weibo/3371677214124537
+"903347"^^<http://www.w3.org/2001/XMLSchema#long>
+""#微群大变身#三大入口查看微群内容更方便！想找到更多有意思的群？想更快捷的查看微群内新消息？想更方便的和群友联系？新版微群首页，三大微群入口，全面解决你的所需！还有10台<a href=""http://weibo.cn/n/%E5%B0%8F%E7%B1%B3%E5%85%AC%E5%8?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8cF%B8"">@小米公司</a> 的小米手机、100台<a href=""http://weibo.cn/n/%E6%BC%AB%E6%AD%A5%E8%8?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c0%85"">@漫步者</a> 音箱及海量充值卡总价10万元超给力大奖免费等你拿<a href=""http://weibo.cn/sinaurl?f=w&amp;u=http%3A%2F%2Fq.weibo&amp;gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c.com"">http://q.weibo.com</a>  ""
+http://weibo.com/weibo/3431444108297123
+"750726"^^<http://www.w3.org/2001/XMLSchema#long>
+""#微群回复可配图#微群功能再次强势升级！觉得苍白的文字回复无法表达你丰富的内涵？微群内微博评论时可以插入图片啦！点击链接<a href=""http://weibo.cn/sinaurl?f=w&amp;u=http%3A%2F%2Ft.cn%2Fhb&amp;gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8cwar9"">http://t.cn/hbwar9</a> 快去试试！转发本条微博关注<a href=""http://weibo.cn/n/%E6%BC%AB%E6%AD%A5%E8%8?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c0%85"">@漫步者</a> 就有机会获得最新款高端音乐耳机H850一副，一共80副等你来拿！ [活动]<a href=""http://weibo.cn/sinaurl?f=w&amp;u=http%3A%2F%2Ft.cn%2FzOK&amp;gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c5mBs"">http://t.cn/zOK5mBs</a>""
+http://weibo.com/weibo/3343531616094195
+"294975"^^<http://www.w3.org/2001/XMLSchema#long>
+""抓住自己的幸福吧[心]"
+http://weibo.com/weibo/3472975095860924
+"205596"^^<http://www.w3.org/2001/XMLSchema#long>
+"我做到了，我成功了！感谢大家的支持！"
+http://weibo.com/weibo/3449713464551829
+"169532"^^<http://www.w3.org/2001/XMLSchema#long>
+""#天声一队爱心转发# 每轉發一次此微博。<a href=""http://weibo.cn/n/%E8%8B%8F%E5%AE%81%E6%98%93%E8%B?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c4%AD"">@苏宁易购</a> 將為<a href=""http://weibo.cn/n/%E5%A4%A9%E5%A3%B0%E4%B8%80%E9%9?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c8%9F"">@天声一队</a> #快乐校车#公益項目捐出一元錢。為了孩子們的上學之路與美好未來。我們衝啊。。承諾人：<a href=""http://weibo.cn/n/%E8%8B%8F%E5%AE%81%E6%98%93%E8%B4%AD%E6%9D%8E%E6%9?gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8c6%8C"">@苏宁易购李斌</a>""
+http://weibo.com/weibo/5603664396091205542
+"161489"^^<http://www.w3.org/2001/XMLSchema#long>
+""我願意一生愛妳、照顧妳、保護妳...在你傷心難過時、體諒妳、安慰妳...在妳生病痛苦時、陪伴妳、扶侍妳...在妳成功得意、肯定妳、提醒妳...在妳失敗挫折時、支持妳、鼓勵妳.....讓我照顧妳"
+http://weibo.com/weibo/3399571699593554
+"153510"^^<http://www.w3.org/2001/XMLSchema#long>
+"是的，我恋爱了，抱歉，现在才鼓起勇气告诉一直关心爱护我的你们，因为对于一直支持隐恋的我来说，将自己的感情世界与公众分享的确很需要勇气。恩~但是我现在想告诉大家，我很好，也希望能得到你们的祝福。再次说一句抱歉让你们疑惑担心了，谢谢，感恩～[祈祷]鞠躬~"
+http://weibo.com/weibo/3431411921054133
+"152194"^^<http://www.w3.org/2001/XMLSchema#long>
+""《写给每一个自己》 <a href=""http://weibo.cn/sinaurl?f=w&amp;u=http%3A%2F%2Ft.cn%2FzOK&amp;gsid=3_5bce9ccaceec0b2677e45c21056712fd09eb417f8cyZ6x"">http://t.cn/zOKyZ6x</a>""
+http://weibo.com/weibo/5626163182999462799
+"145407"^^<http://www.w3.org/2001/XMLSchema#long>
+"中国红十字会总会再次真诚感谢广大公众和媒体对红十字工作的关心和监督，希望在今后的工作中继续得到大家的支持和信任。我们将以谨慎务实的态度和作风，继续发扬人道主义精神，致力于保护人的生命与健康，把每一份爱心，每一笔善款，传递给最需要帮助的人。"
+/***********************************************************************************************************/
+// The last weibo of the text.
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/property/> " +
+				"SELECT ?y ?date ?t " +
+				"WHERE {" +
+				"?y nsw:text ?t ." +
+				"?y nsw:post-date ?date ." +
+				"} " +
+				"ORDERBY DESC(?date) " +
+				"LIMIT 1";
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/property/> SELECT ?y ?date ?t WHERE {?y nsw:text ?t .?y nsw:post-date ?date .} ORDERBY DESC(?date) LIMIT 1
+http://weibo.com/weibo/3482500699725716
+"1345776286"^^<http://www.w3.org/2001/XMLSchema#long>
+"在哪兒弄的??"
+[ 2012年8月24日 GMT+0800上午10时44分46秒 ]
+/***********************************************************************************************************/
+// The first weibo of the text.
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/property/> " +
+				"SELECT ?y ?date ?t " +
+				"WHERE {" +
+				"?y nsw:text ?t ." +
+				"?y nsw:post-date ?date ." +
+				"} " +
+				"ORDERBY ?date " +
+				"LIMIT 1";
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/property/> SELECT ?y ?date ?t WHERE {?y nsw:text ?t .?y nsw:post-date ?date .} ORDERBY ?date LIMIT 1
+http://weibo.com/weibo/2011001212052296
+"1264058051"^^<http://www.w3.org/2001/XMLSchema#long>
+"卡地亚全新Love me戒指，RMB5900元一对，是号称今年情人节最佳性价比奢侈品礼物。"
+[ 2010年1月21日 GMT+0800下午3时14分11秒 ]
+/***********************************************************************************************************/
+The timeline: (segmentation 2678400)
+2010.1.1 0:00, 1262275200
+2010.2.1 0:00, 1264953600
+
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+					"PREFIX nsw:<http://weibo.com/property/> " +
+					"SELECT (COUNT(?y) as ?num) " +
+					"WHERE {" +
+					"?y nsw:text ?t ." +
+					"?y nsw:post-date ?date ." +
+					"FILTER (?date > "+start+" && ?date <  "+end+" ) ." +
+					"} ";
+PREFIX nsu:<http://weibo.com/post/> 
+PREFIX nsw:<http://weibo.com/property/> 
+SELECT (COUNT(?y) as ?num) 
+WHERE {?y nsw:text ?t .
+?y nsw:post-date ?date .
+FILTER (?date > STARTTIME && ?date <  ENDTIME ) .}
+// The total weibo number of all the users in this file.
+2010/01/01 - 2010/02/01,1
+2010/02/01 - 2010/03/04,1
+2010/03/04 - 2010/04/04,2
+2010/04/04 - 2010/05/05,2
+2010/05/05 - 2010/06/05,8
+2010/06/05 - 2010/07/06,7
+2010/07/06 - 2010/08/06,16
+2010/08/06 - 2010/09/06,85
+2010/09/06 - 2010/10/07,190
+2010/10/07 - 2010/11/07,285
+2010/11/07 - 2010/12/08,597
+2010/12/08 - 2011/01/08,1468
+2011/01/08 - 2011/02/08,2238
+2011/02/08 - 2011/03/11,4607
+2011/03/11 - 2011/04/11,6219
+2011/04/11 - 2011/05/12,9030
+2011/05/12 - 2011/06/12,10100
+2011/06/12 - 2011/07/13,10984
+2011/07/13 - 2011/08/13,9802
+2011/08/13 - 2011/09/13,9645
+2011/09/13 - 2011/10/14,7816
+2011/10/14 - 2011/11/14,6089
+2011/11/14 - 2011/12/15,7105
+2011/12/15 - 2012/01/15,8455
+2012/01/15 - 2012/02/15,8178
+2012/02/15 - 2012/03/17,9493
+2012/03/17 - 2012/04/17,9428
+2012/04/17 - 2012/05/18,9202
+2012/05/18 - 2012/06/18,10867
+2012/06/18 - 2012/07/19,11942
+2012/07/19 - 2012/08/19,10306
+2012/08/19 - 2012/09/19,1416
+2012/09/19 - 2012/10/20,0
+2012/10/20 - 2012/11/20,0
+2012/11/20 - 2012/12/21,0
+
+/***********************************************************************************************************/
+// The top ten waterful user
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/property/> SELECT ?u (COUNT(DISTINCT ?w) as ?wnum) WHERE {?u nsu:create ?w .} GROUP BY ?u ORDERBY DESC(?wnum)LIMIT 10
+http://weibo.com/user/1803314931,40897
+http://weibo.com/user/1803293310,18999
+http://weibo.com/user/1803305327,9543
+http://weibo.com/user/1803308275,4889
+http://weibo.com/user/1803307395,4775
+http://weibo.com/user/1803311571,4579
+http://weibo.com/user/1803302555,4140
+http://weibo.com/user/1772258990,2078
+http://weibo.com/user/1803310705,1779
+http://weibo.com/user/1803298291,1508
+/***********************************************************************************************************/
+// The most waterful user's timeline.
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+					"PREFIX nsw:<http://weibo.com/property/> " +
+					"PREFIX user:<http://weibo.com/user/>" +
+					"SELECT (COUNT(?w) as ?num) " +
+					"WHERE {" +
+					"user:1803314931 nsu:create ?w ." +
+					"?w nsw:post-date ?date ." +
+					"FILTER (?date > "+start+" && ?date <  "+end+" ) ." +
+					"} ";
+
+2010/06/05 - 2010/07/06,0
+2010/07/06 - 2010/08/06,0
+2010/08/06 - 2010/09/06,4
+2010/09/06 - 2010/10/07,2
+2010/10/07 - 2010/11/07,0
+2010/11/07 - 2010/12/08,0
+2010/12/08 - 2011/01/08,11
+2011/01/08 - 2011/02/08,257
+2011/02/08 - 2011/03/11,904
+2011/03/11 - 2011/04/11,1669
+2011/04/11 - 2011/05/12,3067
+2011/05/12 - 2011/06/12,3462
+2011/06/12 - 2011/07/13,3891
+2011/07/13 - 2011/08/13,3614
+2011/08/13 - 2011/09/13,2857
+2011/09/13 - 2011/10/14,1938
+2011/10/14 - 2011/11/14,1389
+2011/11/14 - 2011/12/15,1479
+2011/12/15 - 2012/01/15,1629
+2012/01/15 - 2012/02/15,1865
+2012/02/15 - 2012/03/17,2590
+2012/03/17 - 2012/04/17,2291
+2012/04/17 - 2012/05/18,1811
+2012/05/18 - 2012/06/18,1921
+2012/06/18 - 2012/07/19,2342
+2012/07/19 - 2012/08/19,1754
+2012/08/19 - 2012/09/19,150
+2012/09/19 - 2012/10/20,0
+2012/10/20 - 2012/11/20,0
+2012/11/20 - 2012/12/21,0
+/***********************************************************************************************************/
+// The highest retweet number in this file totally from the original data.
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/from/> " +
+				"SELECT ?wori (COUNT(DISTINCT ?w) as ?wnum) " +
+				"WHERE {" +
+				"?w nsw:retweet-from ?wori" +
+				"} " +
+				"GROUPBY ?wori " +
+				"ORDERBY DESC(?wnum)" +
+				"LIMIT 10";
+
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/from/> SELECT ?wori (COUNT(DISTINCT ?w) as ?wnum) WHERE {?w nsw:retweet-from ?wori} GROUPBY ?wori ORDERBY DESC(?wnum)LIMIT 10
+http://weibo.com/weibo/5615361451925932771,49
+http://weibo.com/weibo/2311103094993595,40
+http://weibo.com/weibo/3358301284940873,39
+http://weibo.com/weibo/3471747997203035,24
+http://weibo.com/weibo/3442466650784990,20
+http://weibo.com/weibo/3345255290585287,20
+http://weibo.com/weibo/3441344909630368,17
+http://weibo.com/weibo/2211012211214994678,16
+http://weibo.com/weibo/201110412255683956,15
+http://weibo.com/weibo/3384648652994575,15
+/***********************************************************************************************************/
+String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/from/> " +
+				"SELECT ?u ?wori (COUNT(DISTINCT ?w) as ?wnum) " +
+				"WHERE {" +
+				"?u nsu:create ?w ." +
+				"?w nsw:retweet-from ?wori ." +
+				"} " +
+				"GROUPBY ?u ?wori " +
+				"ORDERBY DESC(?wnum)" +
+				"LIMIT 10";
+
+PREFIX nsu:<http://weibo.com/post/> PREFIX nsw:<http://weibo.com/from/> SELECT ?u ?wori (COUNT(DISTINCT ?w) as ?wnum) WHERE {?u nsu:create ?w .?w nsw:retweet-from ?wori .} GROUPBY ?u ?wori ORDERBY DESC(?wnum)LIMIT 10
+http://weibo.com/user/1803299813,http://weibo.com/weibo/5615361451925932771,49
+http://weibo.com/user/1803307395,http://weibo.com/weibo/2311103094993595,40
+http://weibo.com/user/1803310705,http://weibo.com/weibo/3358301284940873,39
+http://weibo.com/user/1803307395,http://weibo.com/weibo/3471747997203035,24
+http://weibo.com/user/1803293310,http://weibo.com/weibo/3442466650784990,20
+http://weibo.com/user/1803307395,http://weibo.com/weibo/3345255290585287,20
+http://weibo.com/user/1803293310,http://weibo.com/weibo/3441344909630368,17
+http://weibo.com/user/1803305327,http://weibo.com/weibo/2211012211214994678,16
+http://weibo.com/user/1803307395,http://weibo.com/weibo/201110412255683956,15
+http://weibo.com/user/1803307395,http://weibo.com/weibo/3384648652994575,15
+/***********************************************************************************************************/
+
+PREFIX nsu:<http://weibo.com/weibo/> PREFIX nss:<http://weibo.com/property/> SELECT ?s (COUNT(?s) as ?num) WHERE {?w nss:source ?s .} GROUPBY ?s ORDERBY DESC(?num)LIMIT 20
+新浪微博,112059
+iPhone客户端,11253
+Android客户端,4802
+皮皮时光机,3803
+AIR微博,2255
+Weico.iPhone,1907
+UC浏览器,1689
+S60客户端,1569
+Kjava客户端,1537
+iPad客户端,1488
+微活动,1389
+时光机,1182
+投票,1170
+WeicoPro,937
+企业微博,853
+微博AIR,622
+定时showone,607
+微博桌面,589
+好保姆,464
+土豆网推视频,433
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

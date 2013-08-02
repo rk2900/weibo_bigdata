@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URLDecoder;
 import java.util.Date;
 
 import org.openrdf.model.Literal;
@@ -18,6 +19,11 @@ import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
 import org.openrdf.model.impl.LinkedHashModel;
 import org.openrdf.model.impl.ValueFactoryImpl;
+import org.openrdf.query.BindingSet;
+import org.openrdf.query.MalformedQueryException;
+import org.openrdf.query.QueryEvaluationException;
+import org.openrdf.query.QueryLanguage;
+import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
@@ -403,7 +409,6 @@ public class RepoUtil {
 			try {
 				repoConn.rollback();
 			} catch (RepositoryException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		} catch (RDFParseException e) {
@@ -519,5 +524,123 @@ public class RepoUtil {
 			e.printStackTrace();
 		}
 		System.out.println("-------Output ends--------");
+	}
+
+	public void query() {
+		String query = "PREFIX nsu:<http://weibo.com/post/> " +
+				"PREFIX nsw:<http://weibo.com/property/> " +
+				"SELECT ?w ?t " +
+				"WHERE {" +
+				"?w nsw:text ?t ." +
+				"FILTER( regex(?t, \"我在#\"))" +
+				"} " +
+				"LIMIT 100";
+		System.out.println(query);
+		TupleQueryResult result = null;
+		try {
+			result = repoConn.prepareTupleQuery(QueryLanguage.SPARQL, query).evaluate();
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (MalformedQueryException e) {
+			e.printStackTrace();
+		}
+		try {
+			while(result.hasNext()) {
+				BindingSet bs = result.next();
+				System.out.println(bs.getValue("w")+"  "+bs.getValue("t"));
+//				System.out.println(bs.getValue("date"));
+//				System.out.println(bs.getValue("t"));
+			}
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void timeLineQuery() {
+		long start = 1262275200;
+		long seg = 2678400;
+		long end = start + seg;
+		
+		for(int i=1; i<36; i++) {
+			String query = "PREFIX nsu:<http://weibo.com/post/> " +
+					"PREFIX nsw:<http://weibo.com/property/> " +
+					"PREFIX user:<http://weibo.com/user/>" +
+					"SELECT (COUNT(?w) as ?num) " +
+					"WHERE {" +
+					"user:1803314931 nsu:create ?w ." +
+					"?w nsw:post-date ?date ." +
+					"FILTER (?date > "+start+" && ?date <  "+end+" ) ." +
+					"} ";
+//			System.out.println(query);
+			TupleQueryResult result = null;
+			String dateStart = new java.text.SimpleDateFormat("yyyy/MM/dd")
+									.format(new java.util.Date(start * 1000));
+			String dateEnd = new java.text.SimpleDateFormat("yyyy/MM/dd")
+									.format(new java.util.Date(end * 1000));
+			try {
+				result = repoConn.prepareTupleQuery(QueryLanguage.SPARQL, query).evaluate();
+			} catch (QueryEvaluationException e) {
+				e.printStackTrace();
+			} catch (RepositoryException e) {
+				e.printStackTrace();
+			} catch (MalformedQueryException e) {
+				e.printStackTrace();
+			}
+			try {
+				while(result.hasNext()) {
+					BindingSet bs = result.next();
+					String num = bs.getValue("num").toString();
+					num = num.substring(1, num.indexOf("^")-1);
+					System.out.println(dateStart+" - "+dateEnd+","+num);
+				}
+			} catch (QueryEvaluationException e) {
+				e.printStackTrace();
+			}
+			start += seg;
+			end += seg;
+		}
+		
+	}
+	
+	public void sourceQuery() {
+		String query = "PREFIX nsu:<http://weibo.com/weibo/> " +
+				"PREFIX nss:<http://weibo.com/property/> " +
+				"SELECT ?s (COUNT(?s) as ?num) " +
+				"WHERE {" +
+				"?w nss:source ?s ." +
+				"} " +
+				"GROUPBY ?s " +
+				"ORDERBY DESC(?num)" +
+				"LIMIT 20";
+		System.out.println(query);
+		TupleQueryResult result = null;
+		try {
+			result = repoConn.prepareTupleQuery(QueryLanguage.SPARQL, query).evaluate();
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (MalformedQueryException e) {
+			e.printStackTrace();
+		}
+		try {
+			while(result.hasNext()) {
+				BindingSet bs = result.next();
+				String source = bs.getValue("s").toString();
+				source = source.substring(source.lastIndexOf("/")+1, source.length());
+//				System.out.println(source);
+				source = URLDecoder.decode(source);
+				String num = bs.getValue("num").toString();
+				num = num.substring(1, num.indexOf("^")-1);
+				System.out.println(source+"," + num);
+//				System.out.println(bs.getValue("date"));
+//				System.out.println(bs.getValue("t"));
+			}
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		}
 	}
 }

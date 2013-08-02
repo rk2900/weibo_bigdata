@@ -1,6 +1,6 @@
 ache & Temp Files
 *repo/*
-*repoWeibo/*
+*repo*
 *bin/*
 /Temp/*/*
 ~*
@@ -12,4 +12,4 @@ ache & Temp Files
 *.DS_*
 /bin
 weibo.log*
-*result.N3*
+*result*
