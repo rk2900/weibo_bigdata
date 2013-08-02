@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
-import java.util.Date;
 
 import org.openrdf.rio.RDFFormat;
 
@@ -22,8 +21,13 @@ public class weiboMachine {
 	public static void main(String[] args) {
 		repo = new RepoUtil(".//repoWeibo");
 		repo.initialize();
+<<<<<<< HEAD
 //		read("..//weibo_temp");
 //		repo.saveRDFTurtle(".//resultTemp.N3", RDFFormat.N3, "self");
+=======
+//		read("..//weibo_data");
+		repo.saveRDFTurtle(".//result.N3", RDFFormat.N3, "self");
+>>>>>>> 783cef7e2ae35fbf0015efee8e5d7b4e981487b2
 //		System.out.println(isTimeStamp("1289387501"));
 		repo.query();
 //		repo.timeLineQuery();
@@ -38,7 +42,7 @@ public class weiboMachine {
     		if(fileElement.endsWith("csv")){
     			BufferedReader reader;
     			String str = null;
-    			long count=1;
+//    			long count=1;
     			boolean smallFlag = false;
     			try {
 					reader = new BufferedReader(new InputStreamReader(
@@ -47,7 +51,7 @@ public class weiboMachine {
 						reader.readLine();//deal with the first line
 						System.out.println(fileElement);
 						while((str = reader.readLine()) != null) {
-							count++;
+//							count++;
 							/*********************
 							int location = str.indexOf(",@");
 							if(location > 0) {
